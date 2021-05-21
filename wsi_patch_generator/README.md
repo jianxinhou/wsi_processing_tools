@@ -53,6 +53,11 @@ python main.py --save_dir ./patches/ --wsi_dir /repository02/houjianxin_build/da
 
 ## 其他说明
 
-- 引用的WSI图像来源于[Camelyon16数据集中的test_010.tif和test_032.tif](https://camelyon17.grand-challenge.org/Data/)；
-
 - `main.py`仅作为使用`WSIPatchGenerator.py`的示例，`WSIPatchGenerator.py`为核心代码；
+- `main.py`中的代码仅用于处理[Camelyon数据集]([Home - CAMELYON17 - Grand Challenge (grand-challenge.org)](https://camelyon17.grand-challenge.org/))，但其实`WSIPatchGenerator.py`中包含的代码也可以用于处理其他任何组织病理WSI。
+
+## 参考仓库
+
+本工具的实现借鉴了以下仓库：
+
+- [mahmoodlab/CLAM: Data-efficient and weakly supervised computational pathology on whole slide images - Nature Biomedical Engineering (github.com)](https://github.com/mahmoodlab/CLAM)。

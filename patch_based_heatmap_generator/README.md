@@ -53,5 +53,10 @@ python main.py --h5_dir ./patches/ --wsi_dir /repository01/houjianxin_build/clam
 ## 其他说明
 
 - 引用的WSI图像来源于[Camelyon16数据集中的test_010.tif和test_032.tif](https://camelyon17.grand-challenge.org/Data/)；
+- main.py仅作为使用PatchBasedHeatmapGenerator的示例，PatchBasedHeatmapGenerator为核心代码。
 
-- main.py仅作为使用PatchBasedHeatmapGenerator的示例，PatchBasedHeatmapGenerator为核心代码；
+## 参考仓库
+
+本工具的实现借鉴了以下仓库：
+
+- [mahmoodlab/CLAM: Data-efficient and weakly supervised computational pathology on whole slide images - Nature Biomedical Engineering (github.com)](https://github.com/mahmoodlab/CLAM)。

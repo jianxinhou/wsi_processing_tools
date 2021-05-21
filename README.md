@@ -3,7 +3,7 @@
 
 由于WSI图像尺寸一般都很大，无法使用普通的图像查看软件将其打开，也无法直接进行后续处理，因此实现了这一工具集合。
 
-## 工具列表及其使用方法
+## 工具及其使用方法
 
 - [基于Patch分类方法的组织病理WSI缩略热图生成器](./patch_based_heatmap_generator)；
 - [WSI Patch提取器](./wsi_patch_generator/)；
@@ -27,3 +27,9 @@
 - 从组织区域中提取出的patch：
 
   ![patch_result](./wsi_patch_generator/images/patch_result.png)
+
+## 参考仓库
+
+本工具集的实现借鉴了以下仓库：
+
+- [mahmoodlab/CLAM: Data-efficient and weakly supervised computational pathology on whole slide images - Nature Biomedical Engineering (github.com)](https://github.com/mahmoodlab/CLAM)。
