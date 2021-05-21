@@ -100,7 +100,7 @@ if '__main__' == __name__:
     parser.add_argument('--annotation_dir', type=str, default='/repository02/houjianxin_build/dataset_code/CAMELYON16/testing/annotation', help='包含对WSI肿瘤区域标注的目录')
     args = parser.parse_args()
     # start（你需要提供的参数）
-    #       保存patches等数据的目录
+    #       保存patches和mask的目录
     save_dir = args.save_dir
     #       包含WSI的目录
     wsi_dir = args.wsi_dir

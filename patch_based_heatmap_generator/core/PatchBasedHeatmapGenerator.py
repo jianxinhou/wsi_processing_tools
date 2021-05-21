@@ -23,26 +23,25 @@ from scipy.stats import rankdata
 
 class PatchBasedHeatmapGenerator(object):
     '''
-    用于为WSI生成基于Patch分类的、可使用一般图像查看工具打开的WSI热图缩略图。
+    用于为WSI生成基于Patch分类的、可使用一般图像查看工具打开的WSI热图缩略图.
 
     Attributes:
-        __slide: 被生成热图的WSI，
-        __patch_level: 取patch的等级
-        __coordinates: patch的坐标，
-        __scores: 每个patch被分类为异常区域的概率，
-        __patch_size： patch的尺寸
+        __slide: 被生成热图的WSI;
+        __patch_level: 取patch的等级;
+        __coordinates: patch的坐标;
+        __scores: 每个patch被分类为异常区域的概率;
+        __patch_size： patch的尺寸.
     '''
 
     def __init__(self, slide_path, patch_level, coordinates, scores, patch_size):
         '''
-        @description: 初始化
-        @param {
-            slide_path: 待生成热图的WSI图像路径，
-            patch_level: 取patch的wsi缩放等级，
-            coordinates: 用于生成热图的patch的坐标，尺寸为N*2，N为patch数目，坐标为二维坐标，
-            scores: 每个patch为异常区域的分数，尺寸为N*1，N为patch数目，模型不同值域不同，
-            patch_size: patch的尺寸。 
-        }
+        @description: 初始化.
+        @param:
+            slide_path: 待生成热图的WSI图像路径;
+            patch_level: 取patch的wsi缩放等级;
+            coordinates: 用于生成热图的patch的坐标，尺寸为N*2，N为patch数目，坐标为二维坐标;
+            scores: 每个patch为异常区域的分数，尺寸为N*1，N为patch数目，模型不同值域不同;
+            patch_size: patch的尺寸.
         '''        
         self.__slide = openslide.open_slide(slide_path)
         self.__patch_level = patch_level
@@ -52,7 +51,7 @@ class PatchBasedHeatmapGenerator(object):
         
     def __del__():
         '''
-        @description: 释放资源
+        @description: 释放资源.
         '''        
         del self.__slide
         del self.__patch_level
@@ -69,17 +68,15 @@ class PatchBasedHeatmapGenerator(object):
                          normalize_method = "close" 
                          ):
         '''
-        @description: 完成构造后，使用此方法生成自定义热图缩略图
-        @param {
-            thumbnail_size: 缩略图与原始WSI的宽高比例，被限制在THUMBNAIL_SIZE_LOWER_LIMIT到THUMBNAIL_SIZE_UPPER_LIMIT之间，同时生成的缩略图尺寸最大为THUMBNAIL_MAX_SIZE，最小为THUMBNAIL_MIN_SIZE，
-            style: 热图样式，默认为coolwarm
-            alpha: 热图的透明度，默认为0.5
-            normalize_method: 将scores映射到0和1区间的方法，close为无需映射，默认为close
-        }
-        @return {
-            thumbnail：缩略图原图
-            heatmap：生成的缩略图热图
-        }
+        @description: 完成构造后，使用此方法生成自定义热图缩略图.
+        @param:
+            thumbnail_size: 缩略图与原始WSI的宽高比例，被限制在THUMBNAIL_SIZE_LOWER_LIMIT到THUMBNAIL_SIZE_UPPER_LIMIT之间，同时生成的缩略图尺寸最大为THUMBNAIL_MAX_SIZE，最小为THUMBNAIL_MIN_SIZE;
+            style: 热图样式，默认为coolwarm;
+            alpha: 热图的透明度，默认为0.5;
+            normalize_method: 将scores映射到0和1区间的方法，close为无需映射，默认为close.
+        @return:
+            thumbnail：缩略图原图;
+            heatmap：生成的缩略图热图.
         '''        
         # 确保scores和coordinates的个数是一样的
         assert(len(self.__scores) == len(self.__coordinates))
