@@ -54,7 +54,7 @@ python main.py --save_dir ./patches/ --wsi_dir /repository02/houjianxin_build/da
 ## 其他说明
 
 - `main.py`仅作为使用`WSIPatchGenerator.py`的示例，`WSIPatchGenerator.py`为核心代码；
-- `main.py`中的代码仅用于处理[Camelyon数据集]([Home - CAMELYON17 - Grand Challenge (grand-challenge.org)](https://camelyon17.grand-challenge.org/))，但其实`WSIPatchGenerator.py`中包含的代码也可以用于处理其他任何组织病理WSI。
+- `main.py`中的代码仅用于处理[Camelyon数据集](https://camelyon17.grand-challenge.org/)，但其实`WSIPatchGenerator.py`中包含的代码也可以用于处理其他任何组织病理WSI。
 
 ## 参考仓库
 
