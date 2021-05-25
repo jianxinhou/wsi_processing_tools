@@ -1,10 +1,10 @@
 '''
 Author: jianxinhou
 Date: 2021-05-20 22:07:57
-LastEditTime: 2021-05-21 20:17:44
+LastEditTime: 2021-05-25 14:09:56
 LastEditors: jianxinhou
 Description: 这是一个包含如何使用PatchBasedHeatmapGenerator的示例，切割的图像以Camelyon16为例
-FilePath: /wsi_patch_generator/main.py
+FilePath: /wsi_processing_tools/wsi_patch_generator/main.py
 
                        _oo0oo_
                       o8888888o
@@ -95,7 +95,7 @@ def main(wsi_dir, annotation_dir = None, mask_dir='./mask', patches_dir='./patch
 if '__main__' == __name__:
     # 参数
     parser = argparse.ArgumentParser(description='Patch based heatmap generator')
-    parser.add_argument('--save_dir', type=str, default='./patches/', help='保存patches等数据的目录')
+    parser.add_argument('--save_dir', type=str, default='/home/houjianxin/data/camelyon16_patches/test', help='保存patches等数据的目录')
     parser.add_argument('--wsi_dir', type=str, default='/repository02/houjianxin_build/dataset_code/CAMELYON16/testing/images', help='包含WSI的目录')
     parser.add_argument('--annotation_dir', type=str, default='/repository02/houjianxin_build/dataset_code/CAMELYON16/testing/annotation', help='包含对WSI肿瘤区域标注的目录')
     args = parser.parse_args()
@@ -104,6 +104,8 @@ if '__main__' == __name__:
     save_dir = args.save_dir
     #       包含WSI的目录
     wsi_dir = args.wsi_dir
+    #      包含对WSI肿瘤区域标注的目录
+    annotation_dir = args.annotation_dir
     # end
     mask_dir = os.path.join(save_dir, 'mask')
     patchs_dir = os.path.join(save_dir, 'patches')
@@ -113,5 +115,5 @@ if '__main__' == __name__:
         os.mkdir(mask_dir)
     if False == os.path.exists(patchs_dir):
         os.mkdir(patchs_dir)
-    main(wsi_dir=wsi_dir, annotation_dir=args.annotation_dir, mask_dir=mask_dir, patches_dir=patchs_dir)
+    main(wsi_dir=wsi_dir, annotation_dir=annotation_dir, mask_dir=mask_dir, patches_dir=patchs_dir)
     

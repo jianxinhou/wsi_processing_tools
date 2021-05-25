@@ -1,7 +1,7 @@
 '''
 Author: jianxinhou
 Date: 2021-05-19 16:39:14
-LastEditTime: 2021-05-21 20:17:17
+LastEditTime: 2021-05-25 12:55:18
 LastEditors: jianxinhou
 Description: 
             摘要:
@@ -195,7 +195,7 @@ class WSIPatchGenerator:
                 'center': patch中心点在轮廓中;
                 'basic': patch左上角点在轮廓中. 
         @return:
-            data: 是一个字典，包含每个轮廓的patch坐标和标签，.
+            data: 是一个字典，包含每个轮廓内的patch坐标和标签，.
         '''
         assert(check_method in ['four_point_easy', 'four_point_hard', 'center', 'basic'])        
         # 下采样块大小
@@ -259,7 +259,7 @@ class WSIPatchGenerator:
             temp_coordinates = np.array([np.array(result[0]) for result in results], dtype = 'int32')
             temp_labels = np.array([int(result[1]) for result in results], dtype='int32')
             temp_data = {}
-            temp_data['patches'] = temp_coordinates
+            temp_data['coordinates'] = temp_coordinates
             temp_data['labels'] = temp_labels
             # 保存
             data[contour_id] = temp_data
