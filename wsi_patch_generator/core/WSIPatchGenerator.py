@@ -256,10 +256,10 @@ class WSIPatchGenerator:
                 results = np.array([result for result in results if result is not None])
             # 筛选完成，整理数据
             print('共{}个patch'.format(results.shape[0]))
-            temp_patches = np.array([np.array(result[0]) for result in results], dtype = 'int32')
+            temp_coordinates = np.array([np.array(result[0]) for result in results], dtype = 'int32')
             temp_labels = np.array([int(result[1]) for result in results], dtype='int32')
             temp_data = {}
-            temp_data['patches'] = temp_patches
+            temp_data['patches'] = temp_coordinates
             temp_data['labels'] = temp_labels
             # 保存
             data[contour_id] = temp_data

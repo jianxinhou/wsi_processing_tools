@@ -78,17 +78,17 @@ def main(wsi_dir, annotation_dir = None, mask_dir='./mask', patches_dir='./patch
         # 根据组织区域切小patch
         data = patch_generator.draw_patch_within_contours(patch_level, patch_size, step_size, max_thread_number=10)
         # 将patch信息全部放入一个大数组
-        patches = np.empty((0,2),dtype='int32', order='C')
+        coordinates = np.empty((0,2),dtype='int32', order='C')
         labels = np.empty((0),dtype='int32', order='C') 
         for value in data.values():
-            patches = np.append(patches, value['patches'], axis=0)
+            coordinates = np.append(coordinates, value['coordinates'], axis=0)
             labels = np.append(labels, value['labels'], axis=0)
         # 保存h5文件
         with h5py.File(h5_path, mode='w') as f:
-            f.create_dataset('patches', data = patches)
+            f.create_dataset('coordinates', data = coordinates)
             f.create_dataset('labels', data = labels)
-            f['patches'].attrs['patch_level'] = 0
-            f['patches'].attrs['patch_size'] = (256, 256)
+            f['coordinates'].attrs['patch_level'] = 0
+            f['coordinates'].attrs['patch_size'] = (256, 256)
         print()
     print('处理完成！')
 
